@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Die Verwendung dieses Verzeichnisses ist optional!
+%
+% Es ist standardmäßig deaktiviert.
+% Zum Aktivieren die beiden Hinweise in der main.tex beachten.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% in Kombination mit SIunitx verwenden!
+% \ensuremath -> Darstellung im Mathemodus
+%
+% Weitere Informationen: https://mixable.blog/latex-acronym-fuer-formelverzeichnis-mit-einheiten-versehen/
+%
+% Aufruf z.B. mit \ac{KÜRZEL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{acronym}[LONGEST]
+	%\acro{KÜRZEL}[ABKÜRZUNG]{\acrounit{SI-EINHEIT}BESCHREIBUNG}
+	\acro{Oberfl}[\ensuremath{A}]{\acrounit{\meter^2}Oberfläche}
+	%...
+\end{acronym}

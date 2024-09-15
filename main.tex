@@ -1,0 +1,218 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HTWK Leipzig LaTeX Vorlage - Abschlussarbeit
+% Interne Referenznummer 2_9
+%
+% Die Vorlage entspricht der "Richtlinie für die Anfertigung von wissenschaftlichen Arbeiten" der Fakultät Ingenieurwissenschaften
+% Es besteht kein Anspruch auf Richtigkeit
+% 
+% Das Dokument basiert teilweise auf den Vorlagen von :
+% Markus Voerkel
+% https://de.overleaf.com/latex/templates/thesis-template-for-hochschule-fur-technik-wirtschaft-und-kultur-leipzig/nqpftcjmmtts
+%
+% Linda Vogel & Jon Arnt Kårstad
+% https://www.overleaf.com/latex/templates/template-projekt-htwk/mphqwccfvvwy
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------
+%	Dokumentenklasse
+%---------------------------------------
+
+% Dokumentenklasse %
+\documentclass[
+ngerman,
+toc=flat,
+toc=chapterentrywithdots,
+captions=tableabove,
+listof=entryprefix,
+listof=leveldown,
+fontsize=12pt,
+numbers=noenddot,
+usegeometry]
+{scrreprt}
+
+%---------------------------------------
+%	Laden von Paketen
+%---------------------------------------
+
+\usepackage{babel}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{ragged2e}
+
+% Geoemetry %
+\usepackage{geometry}
+\geometry{
+	top = 25mm,
+	headsep = 7mm,
+	left = 28mm,
+	right = 20mm, 
+	bottom = 25mm,
+	}
+
+\usepackage[letterspace=150]{microtype}
+\usepackage[onehalfspacing]{setspace}
+
+
+% Caption %
+\usepackage[labelfont={bf,sf},font={bf}, labelsep=space, singlelinecheck=off]{caption} 
+\captionsetup[figure]{justification=centering}
+\captionsetup[table]{justification=raggedright}
+
+
+% Bibtex %
+\usepackage[
+    backend=biber,
+    style=numeric-comp,
+    sorting=none,
+    defernumbers=true
+]{biblatex}
+\addbibresource{Literatur.bib}
+\usepackage{csquotes}
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+
+% Hyperref %
+\usepackage{hyperref}
+\hypersetup{ 
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black}
+ 
+% Einfügen von PDF-Dateien %
+\usepackage{pdfpages}
+
+% Einfacher Umgang mit Einheiten %
+\usepackage{siunitx}
+\sisetup{
+    locale=DE,
+    per-mode=fraction,
+}
+
+%---------------------------------------
+%	Weitere Konfigurationen
+%---------------------------------------
+
+%Kopfzeile mit Seitenzahl
+\usepackage[autooneside=false]{scrlayer-scrpage}
+\clearpairofpagestyles
+\setkomafont{pageheadfoot}{\footnotesize}
+\chead{{--~}\pagemark{~--}}
+
+
+%Konfiguration Verzeichnisse
+\BeforeStartingTOC[toc]{\singlespacing} 
+\BeforeStartingTOC[lot]{\renewcommand\autodot{:}}
+\BeforeStartingTOC[lof]{\renewcommand\autodot{:}}
+
+
+%Anpassung der Kapitelüberschrift
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\RedeclareSectionCommand[%
+beforeskip=0pt,
+afterskip=16pt,
+afterindent = false,
+font=\LARGE]{chapter}
+
+%Verhindere Zeilenumbruch innerhalb \cite[Seite]{quelle}
+\renewcommand*{\prenotedelim}{\addnbspace}
+\renewcommand*{\postnotedelim}{\addcomma\addnbspace}
+\renewcommand*{\multicitedelim}{\addcomma\addnbspace}
+\renewcommand*{\extpostnotedelim}{\addnbspace}
+\renewcommand*{\volcitedelim}{\addcomma\addnbspace}
+
+
+\input{MeineDaten} 
+
+\input{Konfigurationsdateien/Anhangsverzeichnis}
+
+
+%Ebenen im Inhaltsverzeichnis
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+%Verwendung normaler "Gänsefüßchen"
+\MakeOuterQuote{"}
+
+%Kein Einzug nach Absatz
+\setlength\parindent{0pt}
+
+%Schriftgröße in Tabellen gleich der Schriftgröße im Dokument
+\usepackage{etoolbox}
+\AtBeginEnvironment{table}{\sffamily}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Für Nutzung des Abkürzungs- und Formelzeichenverzeichnis auskommentieren:
+
+\iffalse %Auskommentiert, ggf. entfernen
+
+\usepackage[nohyperlinks]{acronym}
+\newcommand{\acrounit}[1]{
+  \acroextra{\makebox[18mm][l]{\si[
+  	per-mode=fraction,
+  	fraction-function=\tfrac]{#1}}}
+}
+
+\fi %Auskommentiert, ggf. entfernen
+
+%%%%%%%%%% Platz für weitere Pakete %%%%%%%%%%
+%2 Bilder nebeneinander
+\usepackage{subcaption}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------
+%	Beginn des Dokuments
+%---------------------------------------
+
+\begin{document}
+
+\input{Konfigurationsdateien/Titelseite}
+%\includepdf{Inhalte/PDFs/Sperrvermerk.pdf} %Aus dem Opal herunterladen
+%\includepdf{Inhalte/PDFs/Aufgabenstellung.pdf} %Vorlage aus dem Opal herunterladen, als PDF einbinden
+\input{Konfigurationsdateien/Erklaerung}
+\input{Konfigurationsdateien/Danksagung}
+
+\tableofcontents
+
+\tocless\addchap{Abbildungs- und Tabellenverzeichnis}
+\listoffigures
+\pagebreak %Nach Belieben entfernen
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Für Nutzung des Abkürzungs- und Formelzeichenverzeichnis auskommentieren:
+
+\iffalse %Auskommentiert, ggf. entfernen
+
+\addchap{Abkürzungsverzeichnis}
+\input{Formelzeichen und Abkuerzungen/Abkuerzungen}
+
+\addchap{Formelverzeichnis}
+\input{Formelzeichen und Abkuerzungen/Formelzeichen}
+
+\fi %Auskommentiert, ggf. entfernen
+
+\input{Hauptkapitel/01Einleitung}
+\input{Hauptkapitel/02Grundlagen}
+\input{Hauptkapitel/03Material und Methoden}
+\input{Hauptkapitel/04Ergebnisse}
+\input{Hauptkapitel/05Auswertung}
+\input{Hauptkapitel/06Zusammenfassung und Ausblick}
+
+
+\begin{singlespacing}
+\printbibliography
+\end{singlespacing}
+
+\appendix
+\input{Anhang}
+
+\end{document}
