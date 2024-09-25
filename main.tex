@@ -143,21 +143,18 @@ font=\LARGE]{chapter}
 \usepackage{etoolbox}
 \AtBeginEnvironment{table}{\sffamily}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Für Nutzung des Abkürzungs- und Formelzeichenverzeichnis auskommentieren:
+%%%%%%Nutzung des Abkürzungs- und Formelzeichenverzeichnis%%%%%%%
 
-\iffalse %Auskommentiert, ggf. entfernen
+%Folgendes auskommentieren (Prozentzeichen entfernen):
 
-\usepackage[nohyperlinks]{acronym}
-\newcommand{\acrounit}[1]{
-  \acroextra{\makebox[18mm][l]{\si[
-  	per-mode=fraction,
-  	fraction-function=\tfrac]{#1}}}
-}
+%\usepackage[nohyperlinks]{acronym}
 
-\fi %Auskommentiert, ggf. entfernen
+% 
 
-%%%%%%%%%% Platz für weitere Pakete %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%% Platz für weitere Pakete %%%%%%%%%%%%%%
 %2 Bilder nebeneinander
 \usepackage{subcaption}
 
@@ -166,17 +163,22 @@ font=\LARGE]{chapter}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%---------------------------------------
-%	Beginn des Dokuments
-%---------------------------------------
+%-------------------------------------------------
+%	Beginn des Dokuments und Einbinden der Kapitel
+%-------------------------------------------------
 
 \begin{document}
 
 \input{Konfigurationsdateien/Titelseite}
-%\includepdf{Inhalte/PDFs/Sperrvermerk.pdf} %Aus dem Opal herunterladen
-%\includepdf{Inhalte/PDFs/Aufgabenstellung.pdf} %Vorlage aus dem Opal herunterladen, als PDF einbinden
+
+%Aus dem Opal herunterladen, Einbinden durch einkommentieren
+%\includepdf{Inhalte/PDFs/Sperrvermerk.pdf}
+
+%Aufgabenstellung, Einbinden der durch einkommentieren:
+%\includepdf{Inhalte/PDFs/Aufgabenstellung.pdf} 
+
 \input{Konfigurationsdateien/Erklaerung}
 \input{Konfigurationsdateien/Danksagung}
 
@@ -187,18 +189,19 @@ font=\LARGE]{chapter}
 \pagebreak %Nach Belieben entfernen
 \listoftables
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Für Nutzung des Abkürzungs- und Formelzeichenverzeichnis auskommentieren:
+%%%%%%Nutzung des Abkürzungs- und Formelzeichenverzeichnis%%%%%%%
 
-\iffalse %Auskommentiert, ggf. entfernen
+%Für Nutzung des Abkürzungsverzeichnis folgendes auskommentieren (2x Prozentzeichen entfernen):
 
-\addchap{Abkürzungsverzeichnis}
-\input{Formelzeichen und Abkuerzungen/Abkuerzungen}
+%\addchap{Abkürzungsverzeichnis}
+%\input{Formelzeichen und Abkuerzungen/Abkuerzungen}
 
-\addchap{Formelverzeichnis}
-\input{Formelzeichen und Abkuerzungen/Formelzeichen}
+%Für Nutzung des Formelverzeichnis folgendes auskommentieren (2x Prozentzeichen entfernen):
 
-\fi %Auskommentiert, ggf. entfernen
+%\addchap{Formelverzeichnis}
+%\input{Formelzeichen und Abkuerzungen/Formelzeichen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{Hauptkapitel/01Einleitung}
 \input{Hauptkapitel/02Grundlagen}

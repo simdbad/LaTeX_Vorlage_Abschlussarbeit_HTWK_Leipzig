@@ -10,12 +10,27 @@
 %
 % Weitere Informationen: https://mixable.blog/latex-acronym-fuer-formelverzeichnis-mit-einheiten-versehen/
 %
-% Aufruf z.B. mit \ac{KÜRZEL}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+% Aufruf im Text mit \ac{KÜRZEL}
+%
+%
+%%%%%%%%%Konfiguration%%%%%%%%%%%%
+%
+\newcommand{\acrounit}[1]{
+  \acroextra{\makebox[18mm][l]{\si[
+  	per-mode=fraction,
+  	fraction-function=\tfrac]{#1}}}
+}
+%
+%%%%%%%%%%Verzeichnis%%%%%%%%%%%%%
+%
 \begin{acronym}[LONGEST]
-	%\acro{KÜRZEL}[ABKÜRZUNG]{\acrounit{SI-EINHEIT}BESCHREIBUNG}
+
+	%\acro{Label}[Abkürzung]{\acrounit{SI-Einheit}Langfassung}
+	
 	\acro{Oberfl}[\ensuremath{A}]{\acrounit{\meter^2}Oberfläche}
-	%...
+	
+	\acro{Volum}[\ensuremath{V}]{\acrounit{\meter^3}Volumen}
+	
 \end{acronym}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
