@@ -2,35 +2,22 @@
 % Die Verwendung dieses Verzeichnisses ist optional!
 %
 % Es ist standardmäßig deaktiviert.
-% Zum Aktivieren die beiden Hinweise in der main.tex beachten.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zum Aktivieren den Hinweis in der main.tex beachten.
 %
-% in Kombination mit SIunitx verwenden!
-% \ensuremath -> Darstellung im Mathemodus
-%
-% Weitere Informationen: https://mixable.blog/latex-acronym-fuer-formelverzeichnis-mit-einheiten-versehen/
-%
-% Aufruf im Text mit \ac{KÜRZEL}
-%
-%
-%%%%%%%%%Konfiguration%%%%%%%%%%%%
-%
-\newcommand{\acrounit}[1]{
-  \acroextra{\makebox[18mm][l]{\si[
-  	per-mode=fraction,
-  	fraction-function=\tfrac]{#1}}}
-}
+% Konfiguration %
+\newcommand{\formula}[4]{\acro{#1}[\ensuremath{\bm{#2}}]{#3\makebox[35mm][l]\acroextra{#4}}}
+
+\chapter{Formelverzeichnis}
 %
 %%%%%%%%%%Verzeichnis%%%%%%%%%%%%%
 %
 \begin{acronym}[LONGEST]
-
-	%\acro{Label}[Abkürzung]{\acrounit{SI-Einheit}Langfassung}
+	%\formula{Label}{Formelzeichen}{Beschreibung}{SI-Einheit}
 	
-	\acro{Oberfl}[\ensuremath{A}]{\acrounit{\meter^2}Oberfläche}
-	
-	\acro{Volum}[\ensuremath{V}]{\acrounit{\meter^3}Volumen}
+	\formula{Form:Oberfl}{A}{{Oberfläche}}{\si{\mm^2}}
 	
 \end{acronym}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Aufruf im Text mit \ac{Form:Label}

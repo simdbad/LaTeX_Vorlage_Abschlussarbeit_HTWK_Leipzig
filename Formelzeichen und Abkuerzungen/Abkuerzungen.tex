@@ -2,24 +2,26 @@
 % Die Verwendung dieses Verzeichnisses ist optional!
 %
 % Es ist standardmäßig deaktiviert.
-% Zum Aktivieren die beiden Hinweise in der main.tex beachten.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zum Aktivieren den Hinweis in der main.tex beachten.
 %
 % Weitere Informationen: https://www.namsu.de/Extra/pakete/Acronym.pdf
 %
-% Aufruf im Text mit \ac{Label}
-%
-%
-%%%%%%%%%%Verzeichnis%%%%%%%%%%%%%
-%
-\begin{acronym}[LONGESTLONGEST]
+% Konfiguration %
+\newcommand{\formula}[4]{\acro{#1}[\ensuremath{\bm{#2}}]{#3\makebox[35mm][l]\acroextra{#4}}}
 
+\addchap{Abkürzungsverzeichnis}
+
+%%%%%%%%%%Verzeichnis%%%%%%%%%%%%%
+
+\begin{acronym}[LONGESTLONGEST]
 	%\acro{Label}[Abkürzung]{Langfassung}
 	
-	\acro{ASTM}[ASTM]{American Society for Testing and Materials}
+	\acro{Abk:ASTM}[ASTM]{American Society for Testing and Materials}
 
-	\acro{TTT}[TTT-Diagramm]{Time-Temperature-Transition Diagramm}
+	\acro{Abk:TTT}[TTT-Diagramm]{Time-Temperature-Transition Diagramm}
 
 \end{acronym}
-%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Aufruf im Text mit \ac{Abk:Label}

@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HTWK Leipzig LaTeX Vorlage - Abschlussarbeit
-% Interne Referenznummer 2_10
+% Interne Referenznummer 2_11
 %
 % Die Vorlage entspricht der "Richtlinie für die Anfertigung von wissenschaftlichen Arbeiten" der Fakultät Ingenieurwissenschaften
 % Es besteht kein Anspruch auf Richtigkeit
@@ -26,8 +26,7 @@ captions=tableabove,
 listof=entryprefix,
 listof=leveldown,
 fontsize=12pt,
-numbers=noenddot,
-usegeometry]
+numbers=noenddot]
 {scrreprt}
 
 %---------------------------------------
@@ -91,6 +90,13 @@ usegeometry]
     per-mode=fraction,
 }
 
+% Bessere Kompatibilität der Dokumentenklasse mit div. Paketen %
+\usepackage{scrhack}
+
+% Vorbereitung der Verzeichnisse %
+\usepackage{acronym}
+\usepackage{bm}
+
 %---------------------------------------
 %	Weitere Konfigurationen
 %---------------------------------------
@@ -143,14 +149,6 @@ font=\LARGE]{chapter}
 \usepackage{etoolbox}
 \AtBeginEnvironment{table}{\sffamily}
 
-%%%%%%Nutzung des Abkürzungs- und Formelzeichenverzeichnis%%%%%%%
-
-%Folgendes auskommentieren (Prozentzeichen entfernen):
-
-%\usepackage[nohyperlinks]{acronym}
-
-% 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -191,15 +189,13 @@ font=\LARGE]{chapter}
 
 %%%%%%Nutzung des Abkürzungs- und Formelzeichenverzeichnis%%%%%%%
 
-%Für Nutzung des Abkürzungsverzeichnis folgendes auskommentieren (2x Prozentzeichen entfernen):
+%Für Nutzung des Abkürzungsverzeichnis folgendes auskommentieren (Prozentzeichen entfernen):
 
-%\addchap{Abkürzungsverzeichnis}
-%\input{Formelzeichen und Abkuerzungen/Abkuerzungen}
+\input{Formelzeichen und Abkuerzungen/Abkuerzungen}
 
-%Für Nutzung des Formelverzeichnis folgendes auskommentieren (2x Prozentzeichen entfernen):
+%Für Nutzung des Formelverzeichnis folgendes auskommentieren (Prozentzeichen entfernen):
 
-%\addchap{Formelverzeichnis}
-%\input{Formelzeichen und Abkuerzungen/Formelzeichen}
+\input{Formelzeichen und Abkuerzungen/Formelzeichen}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
