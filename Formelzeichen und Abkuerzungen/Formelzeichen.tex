@@ -5,19 +5,21 @@
 % Zum Aktivieren den Hinweis in der main.tex beachten.
 %
 % Konfiguration %
-\newcommand{\formula}[4]{\acro{#1}[\ensuremath{\bm{#2}}]{#3\makebox[35mm][l]\acroextra{#4}}}
+\newcommand{\formula}[4]{\acro{#1}[\ensuremath{#2}]{#3\makebox[25mm][l]\acroextra{#4}}}
+
+\renewcommand*{\aclabelfont}[1]{\textbf{\boldmath\acsfont{#1}}}
 
 \tocless\addchap{Formelverzeichnis}
 %
 %%%%%%%%%%Verzeichnis%%%%%%%%%%%%%
 %
 \begin{acronym}[LONGEST]
-	%\formula{Label}{Formelzeichen}{Beschreibung}{SI-Einheit}
+	%\formula{Label}{Formelzeichen}{SI-Einheit}{Beschreibung}
 	
-	\formula{Form:Oberfl}{A}{{Oberfläche}}{\si{\mm^2}}
+	\formula{Form:Oberfl}{A}{\si{\mm^2}}{Oberfläche}
 	
 \end{acronym}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Aufruf im Text mit \ac{Form:Label}
+% Aufruf des Formelzeichens im Text mit \acs{Form:Label}
