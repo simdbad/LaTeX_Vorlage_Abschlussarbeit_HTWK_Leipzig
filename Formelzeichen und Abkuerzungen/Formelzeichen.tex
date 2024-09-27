@@ -4,22 +4,32 @@
 % Es ist standardmäßig deaktiviert.
 % Zum Aktivieren den Hinweis in der main.tex beachten.
 %
+%
 % Konfiguration %
-\newcommand{\formula}[4]{\acro{#1}[\ensuremath{#2}]{#3\makebox[25mm][l]\acroextra{#4}}}
+
+\newcommand{\form}[4]{\acro{#1}[\ensuremath{#2}]{#4{\acroextra{\hspace{5em}[#3]}}}}
 
 \renewcommand*{\aclabelfont}[1]{\textbf{\boldmath\acsfont{#1}}}
 
 \tocless\addchap{Formelverzeichnis}
-%
+
+\newcommand{\acls}[1]{\acl{#1} \acs{#1}}
+
 %%%%%%%%%%Verzeichnis%%%%%%%%%%%%%
 %
+
 \begin{acronym}[LONGEST]
-	%\formula{Label}{Formelzeichen}{SI-Einheit}{Beschreibung}
+	%\formula{Label}{Formelzeichen}{Einheit}{Beschreibung}
 	
-	\formula{Form:Oberfl}{A}{\si{\mm^2}}{Oberfläche}
+	\form{obfl}{A}{\si{\m^2}}{Oberfläche}
+    \form{vol}{V}{\si{\m^3}}{Volumen}
 	
 \end{acronym}
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Aufruf des Formelzeichens im Text mit \acs{Form:Label}
+
+% Aufruf des Formelzeichens im Text mit \acs{Label}
+% Aufruf der Beschreibung im Text mit \acl{Label}
+% Aufruf von Beschreibung+Formelzeichen mit \acls{Label}
