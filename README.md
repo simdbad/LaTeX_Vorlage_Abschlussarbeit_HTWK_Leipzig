@@ -28,7 +28,7 @@ Es besteht kein Anspruch auf Richtigkeit.
   
 - In der Repository fehlt der leere Ordner "Inhalte" für Bilder und PDFs
 
-- Download der Vorlage bei Overleaf empfohlen 
+- Download der Vorlage bei Overleaf empfohlen: https://de.overleaf.com/latex/templates/abschlussarbeit-htwk-leipzig/mypsvphxmtsk
 
 ## Einrichtung
 
